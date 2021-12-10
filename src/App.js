@@ -12,8 +12,7 @@ function getRandomNumbersAndSum(){
   let v2 = getRandomNumber();  
   let v3 = getRandomNumber();
   let sum = Math.floor(Math.random() * 3) + v1 + v2 + v3;  
-  return [v1, v2, v3, sum];
-  
+  return [v1, v2, v3, sum];  
 }
 
 const firstValues = getRandomNumbersAndSum();
