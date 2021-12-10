@@ -15,8 +15,6 @@ function getRandomNumbersAndSum(){
   return [v1, v2, v3, sum];  
 }
 
-const firstValues = getRandomNumbersAndSum();
-
 function checkAnswer(currentState, isTrue){
   let resultIsCorrect = currentState.proposedAnswer === currentState.value1 + currentState.value2 + currentState.value3;
   if( (resultIsCorrect & isTrue)  | (!resultIsCorrect & !isTrue))
@@ -25,15 +23,19 @@ function checkAnswer(currentState, isTrue){
 }
 
 class App extends Component {
-  
-  state={
-    numQuestions : 0,
-    numCorrect : 0,
-    value1 : firstValues[0],
-    value2 : firstValues[1],
-	value3 : firstValues[2],
-	proposedAnswer : firstValues[3]
+  constructor(props){
+    super(props);
+    let firstValues = getRandomNumbersAndSum();
+    this.state={
+    	numQuestions : 0,
+    	numCorrect : 0,
+    	value1 : firstValues[0],
+    	value2 : firstValues[1],
+		value3 : firstValues[2],
+		proposedAnswer : firstValues[3]
+  	}
   }
+ 
   
   calculateResultAndSetNext = (isTrue) => {
     let nextValues = getRandomNumbersAndSum();
